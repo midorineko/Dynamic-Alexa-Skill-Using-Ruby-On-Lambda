@@ -1,0 +1,27 @@
+{
+  "session": {
+    "new": false,
+    "sessionId": "session1234",
+    "attributes": {},
+    "user": {
+      "userId": null
+    },
+    "application": {
+      "applicationId": "amzn1.ask.skill.4a0265e8-afc5-4a98-8c80-55cd93878306"
+    }
+  },
+  "version": "1.0",
+  "request": {
+    "intent": {
+      "slots": {
+        "myslot": {
+          "name": "myslot",
+          "value": "This is the slot value"
+        }
+      },
+      "name": "next"
+    },
+    "type": "IntentRequest",
+    "requestId": "request5678"
+  }
+}
