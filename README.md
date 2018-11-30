@@ -9,7 +9,7 @@ This is a dynamic Alexa skill using ruby on lambda.
 - Add your intents
     * If you create a `next` intent in the Alexa developer portal, you need to create an `on_next` method in your lambda.
 - End this on_ method with a `response.` 
-    * In this lambda I only used seapk_text, so I not sure if the other methods currently work.
+    * In this lambda I only used speak_text, so I not sure if the other methods currently work.
     * `response.speak_text("see ya!")` will have Alexa say "see ya!" and end the skill.
     * `response.speak_text("keep going?", false)` will have Alexa say "keep going?" and keep the skill open.
     * `response.speak_text("see ya!", false, {'step': 5})` will have Alexa respond the same as the previous and add 'step': 5 to the session attibute 
