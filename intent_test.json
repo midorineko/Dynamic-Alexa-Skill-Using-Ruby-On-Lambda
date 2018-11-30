@@ -7,7 +7,7 @@
       "userId": null
     },
     "application": {
-      "applicationId": "amzn1.ask.skill.4a0265e8-afc5-4a98-8c80-55cd93878306"
+      "applicationId": "amzn1.ask.skill.[YOUR SKILL ID HERE]"
     }
   },
   "version": "1.0",
