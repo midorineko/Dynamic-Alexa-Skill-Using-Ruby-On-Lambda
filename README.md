@@ -8,12 +8,12 @@ This is a dynamic Alexa skill using ruby on lambda.
 - Update `@application_id_check` inside the `lambda_handler` with your skill id.
 - Add your intents
     * If you create a `next` intent in the Alexa developer portal, you need to create an `on_next` method in your lambda.
-- End this on_ method with a `response.` 
-    * In this lambda I only used speak_text, so I not sure if the other methods currently work.
+- End this on_ method with a `response.`
+    * In this lambda I only used speak_text, so I not sure if the other methods work.
     * `response.speak_text("see ya!")` will have Alexa say "see ya!" and end the skill.
     * `response.speak_text("keep going?", false)` will have Alexa say "keep going?" and keep the skill open.
-    * `response.speak_text("see ya!", false, {'step': 5})` will have Alexa respond the same as the previous and add 'step': 5 to the session attibute 
-        * You can retrive this attribute by useing `@session_attributes['step']`
+    * `response.speak_text("see ya!", false, {'step': 5})` will have Alexa act the same as the previous and add 'step': 5 to the session attribute
+        * You can retrieve this attribute by using `@session_attributes['step']`
 
 ### This is adapted code, check out the original by Ryan Cunningham at https://github.com/rcunning/lambda.rb.
 There is a beautiful hello-world-alexa example which will show you how to chain response methods.
@@ -27,3 +27,4 @@ There is a beautiful hello-world-alexa example which will show you how to chain 
 
 ### Big Thanks
 This wouldn't have been possible without Ryan's code!
+
