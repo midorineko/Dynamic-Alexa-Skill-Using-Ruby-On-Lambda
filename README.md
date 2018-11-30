@@ -4,8 +4,7 @@ This is a dynamic Alexa skill using ruby on lambda.
 ## Skill Setup
 (This part expects you to have written a skill before. When I have time I will update with full instructions.)
 - Setup a new Alexa Skill, Ruby Lambda, and connect them.
-Inside the lambda
-- Change the `rss_url` inside `SiteRssParser` class to the feed you want.
+- In the lambda change the `rss_url` inside `SiteRssParser` class to the feed you want.
 - Update `@application_id_check` inside the `lambda_handler` with your skill id.
 - Add your intents
 -- If you create a `next` intent in the Alexa developer portal, you need to create an `on_next` method in your lambda.
@@ -17,7 +16,7 @@ Inside the lambda
 --- You can retrive this attribute by useing `@session_attributes['step']`
 
 ### This is adapted code, check out the original by Ryan Cunningham at https://github.com/rcunning/lambda.rb.
-I say this because he has a beautiful hello-world-alexa example which will show you how to chain response methods. I aded a few tweaks/updates to make getting up and running even easier.
+There is a beautiful hello-world-alexa example which will show you how to chain response methods.
 
 ### Tweaks/Updates
 - Condensed it into one file and updated the lambda handler.
@@ -25,3 +24,6 @@ I say this because he has a beautiful hello-world-alexa example which will show 
 - Gave 'speak_text' method 2 optional parameters. First is end session and second is session attribute object. These will be explained in use section.
 - Edited class variables
 - Added and RSS Parser
+
+### Big Thanks
+This wouldn't have been possible without Ryan's code!
