@@ -139,12 +139,14 @@ class AlexaResponse
   end
 end
 
-class DotaRssParser
+class SiteRssParser
     def get_titles(user_ag, start_val = 0, static = false)
         rss_results = []
-        rss = RSS::Parser.parse(open('http://www.ruby-lang.org/en/feeds/news.rss', 'User-Agent' => user_ag).read, false).items[start_val..start_val+4].to_a
+        # Update with your feed
+        rss_url = "http://www.ruby-lang.org/en/feeds/news.rss"
+        rss = RSS::Parser.parse(open(rss_url, 'User-Agent' => user_ag).read, false).items[start_val..start_val+4].to_a
         if static
-            rss = RSS::Parser.parse(open('https://www.reddit.com/r/dota2/.rss?format=xml', 'User-Agent' => user_ag).read, false).items[start_val..static-1].to_a
+            rss = RSS::Parser.parse(open(rss_url, 'User-Agent' => user_ag).read, false).items[start_val..static-1].to_a
         end
         rss.each_with_index do |result, result_i|
             res_ind = (start_val + result_i + 1).to_s
@@ -165,7 +167,7 @@ def lambda_handler(event:, context:)
       end
       h
     end
-     # redefine this in your class, only one class per process
+    # Update with your skill ID
     @application_id_check = 'amzn1.ask.skill.[YOUR ID HERE]'
     @validate_application_on_every_request = true
   
@@ -206,14 +208,14 @@ def lambda_handler(event:, context:)
       send("on_#{@intent}", @response)
     end
   
-    # override these
+    #INTENTS START HERE
     def on_new_session(); end
     def on_launch(response)
       set_step = 0;
       if @session_attributes['step']
           set_step = @session_attributes['step'] + 5
       end
-      drp = DotaRssParser.new
+      drp = SiteRssParser.new
       got_titles = drp.get_titles(@request_id, set_step)
       response.speak_text(got_titles, false, {'step': set_step})
     end
@@ -222,16 +224,18 @@ def lambda_handler(event:, context:)
       if @session_attributes['step']
           set_step = @session_attributes['step'] + 5
       end
-      drp = DotaRssParser.new
+      drp = SiteRssParser.new
       got_titles = drp.get_titles(@request_id, set_step)
       response.speak_text(got_titles, false, {'step': set_step})
     end
     def on_static(response)
-      drp = DotaRssParser.new
+      drp = SiteRssParser.new
       vals = @request.intent.slots.number.value.to_i rescue 5
       got_titles = drp.get_titles(@request_id, 0, vals)
       response.speak_text(got_titles, true)
     end
+    #YOUR INTENTS END HERE
+    #AMAZON INTENTS START
     def on_exit(response)
       response.speak_text("see ya!")
     end
@@ -251,6 +255,7 @@ def lambda_handler(event:, context:)
     def on_AMAZON_StopIntent(response)
       response.speak_text("see ya!")
     end
+    #AMAZON INTENTS START
   
     def validate_application_id
       raise "AppID #{@application_id} does not match" if @application_id != @application_id_check
