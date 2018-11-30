@@ -1,0 +1,67 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "dota feed",
+            "intents": [
+                {
+                    "name": "AMAZON.FallbackIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": [
+                        "cancel"
+                    ]
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": [
+                        "help"
+                    ]
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": [
+                        "stop"
+                    ]
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "static",
+                    "slots": [
+                        {
+                            "name": "number",
+                            "type": "AMAZON.NUMBER"
+                        }
+                    ],
+                    "samples": [
+                        "static {number}",
+                        "{number}",
+                        "first {number}"
+                    ]
+                },
+                {
+                    "name": "next",
+                    "slots": [],
+                    "samples": [
+                        "continuous",
+                        "continue",
+                        "more",
+                        "next"
+                    ]
+                },
+                {
+                    "name": "exit",
+                    "slots": [],
+                    "samples": [
+                        "exit"
+                    ]
+                }
+            ],
+            "types": []
+        }
+    }
+}
