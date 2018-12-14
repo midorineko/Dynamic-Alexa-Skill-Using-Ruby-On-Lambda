@@ -1,7 +1,7 @@
 {
     "interactionModel": {
         "languageModel": {
-            "invocationName": "dota feed",
+            "invocationName": "rss feed",
             "intents": [
                 {
                     "name": "AMAZON.FallbackIntent",
